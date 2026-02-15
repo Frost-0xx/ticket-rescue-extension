@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Ticket Rescue",
+  "version": "0.1.0",
+  "description": "Ticket price comparison & availability tool.",
+  "action": {
+    "default_title": "Ticket Rescue",
+    "default_popup": "src/popup.html"
+  },
+  "permissions": ["storage", "activeTab", "tabs"],
+  "host_permissions": [
+     "https://api.geturtix.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["vendor/browser-polyfill.min.js", "src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  }
+}
