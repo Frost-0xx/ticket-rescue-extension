@@ -254,6 +254,10 @@ body {
   white-space: nowrap;
 }
 
+.pricePromo {
+  color: rgba(87, 214, 121, 0.95);
+}
+
 /* Bottom: buttons row + subline under it (right aligned) */
 .offerBottom {
   display: grid;

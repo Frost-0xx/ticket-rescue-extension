@@ -257,6 +257,7 @@ function renderResults(payload) {
       const compact = (srcKey === "tl" || srcKey === "sbs");
 
       const promoCode = o?.promo_code || null;
+      const promoPct = o?.promo_percent != null ? `${o.promo_percent}%` : null;
       const badgeText = promoBadgeText(o);
       const badge = badgeText ? `<span class="badge">${escapeHtml(badgeText)}</span>` : "";
 
@@ -274,7 +275,9 @@ function renderResults(payload) {
               ${badge}
             </div>
             <div class="rightTop">
-              <div class="price">${escapeHtml(fmtMoney(price))}</div>
+              <div class="price ${promoCode || promoPct ? "pricePromo" : ""}">
+  ${escapeHtml(fmtMoney(price))}
+</div>
             </div>
           </div>
 

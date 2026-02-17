@@ -22,14 +22,14 @@ if (!["prod", "dev"].includes(ENV)) {
 
 // ---- EDIT THESE ONCE ----
 const PROD = {
-  NAME: "Ticket Rescue",
+  NAME: "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives Rescue",
   DESCRIPTION:
-    "Compare ticket offers and promo deals instantly while browsing event pages.",
+    "Compare ticket prices, find sold-out alternatives, and check available promo deals before checkout",
   VERSION: "1.0.0"
 };
 
 const DEV = {
-  NAME: "Ticket Rescue (DEV)",
+  NAME: "Another Tab (DEV)",
   DESCRIPTION:
     "DEV build. Compare ticket offers and promo deals instantly while browsing event pages.",
   VERSION: "1.0.0-dev"
