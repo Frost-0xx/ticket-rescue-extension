@@ -22,7 +22,7 @@ if (!["prod", "dev"].includes(ENV)) {
 
 // ---- EDIT THESE ONCE ----
 const PROD = {
-  NAME: "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives Rescue",
+  NAME: "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives",
   DESCRIPTION:
     "Compare ticket prices, find sold-out alternatives, and check available promo deals before checkout",
   VERSION: "1.0.0"
