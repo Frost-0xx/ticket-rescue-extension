@@ -60,10 +60,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: var(--popup-width);
+  min-width: var(--popup-width);
 }
 
 body {
-  width: var(--popup-width);
   max-width: var(--popup-width);
   min-height: 520px;
   max-height: 600px;
@@ -734,21 +735,4 @@ code {
 
 [hidden] {
   display: none !important;
-}
-
-@media (max-width: 370px) {
-  :root {
-    --popup-width: 100vw;
-  }
-
-  .siteGrid,
-  .offerActions,
-  .fallbackLinks {
-    grid-template-columns: 1fr;
-  }
-
-  .siteButton {
-    justify-self: stretch;
-    width: 100%;
-  }
 }
