@@ -62,12 +62,13 @@ body {
   padding: 0;
   width: var(--popup-width);
   min-width: var(--popup-width);
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
 }
 
 body {
   max-width: var(--popup-width);
-  min-height: 520px;
-  max-height: 600px;
   overflow-x: hidden;
   overflow-y: auto;
   font-family: var(--font);
@@ -89,7 +90,7 @@ summary:focus-visible {
 }
 
 .app {
-  min-height: 520px;
+  min-height: 600px;
   background:
     radial-gradient(circle at 18% 0%, var(--gradient-blue), transparent 35%),
     radial-gradient(circle at 88% 16%, var(--gradient-pink), transparent 39%),
@@ -123,10 +124,14 @@ summary:focus-visible {
   box-shadow: var(--shadow);
 }
 
-.brandIcon img {
-  width: 34px;
-  height: 34px;
-  object-fit: contain;
+.brandIcon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: #11141d;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .brandCopy {
