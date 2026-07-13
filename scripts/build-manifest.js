@@ -25,14 +25,14 @@ const PROD = {
   NAME: "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives",
   DESCRIPTION:
     "Compare ticket prices, find sold-out alternatives, and check available promo deals before checkout",
-  VERSION: "1.0.3"
+  VERSION: "1.0.4"
 };
 
 const DEV = {
   NAME: "Another Tab (DEV)",
   DESCRIPTION:
     "DEV build. Compare ticket offers and promo deals instantly while browsing event pages.",
-  VERSION: "1.0.3.1"
+  VERSION: "1.0.4.1"
 };
 
 const MATCHES = [

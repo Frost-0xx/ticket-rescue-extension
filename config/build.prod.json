@@ -2,7 +2,7 @@
   "ENV": "prod",
   "NAME": "Another Tab",
   "DESCRIPTION": "Find better ticket options fast",
-  "VERSION": "1.0.3",
+  "VERSION": "1.0.4",
   "ICONS": {
     "16": "assets/icon-16.png",
     "32": "assets/icon-32.png",

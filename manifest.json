@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Compare ticket prices, find sold-out alternatives, and check available promo deals before checkout",
   "action": {
     "default_title": "Another Tab",
@@ -13,7 +13,7 @@
     "48": "assets/icon-48.png",
     "128": "assets/icon-128.png"
   },
-  "permissions": ["storage", "activeTab"],
+  "permissions": ["storage"],
   "host_permissions": [
     "https://www.ticketmaster.com/*",
     "https://www.stubhub.com/*",

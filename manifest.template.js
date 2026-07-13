@@ -20,7 +20,7 @@ module.exports = {
     "128": "__ICON128__"
   },
 
-  permissions: ["storage", "activeTab"],
+  permissions: ["storage"],
 
   // keep as a STRING placeholder; build will replace with JSON array
   host_permissions: "__HOST_PERMISSIONS__",
