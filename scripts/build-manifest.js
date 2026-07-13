@@ -25,22 +25,25 @@ const PROD = {
   NAME: "Another Tab — Compare Ticket Prices & Find Sold-Out Alternatives",
   DESCRIPTION:
     "Compare ticket prices, find sold-out alternatives, and check available promo deals before checkout",
-  VERSION: "1.0.0"
+  VERSION: "1.0.3"
 };
 
 const DEV = {
   NAME: "Another Tab (DEV)",
   DESCRIPTION:
     "DEV build. Compare ticket offers and promo deals instantly while browsing event pages.",
-  VERSION: "1.0.0-dev"
+  VERSION: "1.0.3.1"
 };
 
-// Supported MVP sites
-const HOSTS = [
+const MATCHES = [
   "https://www.ticketmaster.com/*",
   "https://www.stubhub.com/*",
   "https://www.vividseats.com/*",
-  "https://seatgeek.com/*",
+  "https://seatgeek.com/*"
+];
+
+const HOST_PERMISSIONS = [
+  ...MATCHES,
   "https://api.geturtix.com/*"
 ];
 
@@ -79,7 +82,10 @@ function ensureDir(p) {
 function copyDir(src, dst) {
   if (!fs.existsSync(src)) return;
   ensureDir(dst);
-  fs.cpSync(src, dst, { recursive: true });
+  fs.cpSync(src, dst, {
+    recursive: true,
+    filter: (source) => path.basename(source) !== ".DS_Store"
+  });
 }
 
 function writeJson(filePath, obj) {
@@ -148,8 +154,8 @@ function main() {
     "__ICON32__": ICONS["32"],
     "__ICON48__": ICONS["48"],
     "__ICON128__": ICONS["128"],
-    "__HOST_PERMISSIONS__": HOSTS,
-    "__MATCHES__": HOSTS
+    "__HOST_PERMISSIONS__": HOST_PERMISSIONS,
+    "__MATCHES__": MATCHES
   };
 
   // 3) build manifest object
@@ -171,13 +177,6 @@ function main() {
   copyDir(path.join(ROOT, "src"), path.join(DIST, "src"));
   copyDir(path.join(ROOT, "vendor"), path.join(DIST, "vendor"));
   copyDir(path.join(ROOT, "assets"), path.join(DIST, "assets"));
-
-  // optional: copy your config/, but keep generated build.json
-  const configSrc = path.join(ROOT, "config");
-  if (fs.existsSync(configSrc)) {
-    copyDir(configSrc, path.join(DIST, "config"));
-    writeJson(path.join(DIST, "config", "build.json"), buildFlags(ENV));
-  }
 
   console.log(`[build] done: ${DIST}`);
 }

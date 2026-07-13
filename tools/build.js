@@ -32,6 +32,7 @@ function replacePlaceholders(obj, cfg) {
         .replaceAll("__VERSION__", cfg.VERSION)
         .replaceAll("__DESCRIPTION__", cfg.DESCRIPTION)
         .replaceAll("__ICON16__", cfg.ICONS["16"])
+        .replaceAll("__ICON32__", cfg.ICONS["32"])
         .replaceAll("__ICON48__", cfg.ICONS["48"])
         .replaceAll("__ICON128__", cfg.ICONS["128"]);
     }

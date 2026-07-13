@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -7,98 +7,167 @@
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <div class="wrap">
-      <!-- Top bar -->
-      <div class="topbar">
-        <div class="brandblock">
-          <div class="appname">Another Tab</div>
-          <div id="hostline" class="hostline">—</div>
+    <div class="app">
+      <header class="appHeader">
+        <div class="brand">
+          <div class="brandIcon" aria-hidden="true">
+            <img src="../assets/icon-48.png" alt="" />
+          </div>
+          <div class="brandCopy">
+            <div class="appName">Another Tab</div>
+            <div class="tagline">Never trust the first price.</div>
+          </div>
         </div>
 
-        <button id="refreshBtn" class="iconbtn" title="Refresh" aria-label="Refresh">
-          ⟳
+        <button
+          id="settingsBtn"
+          class="iconButton"
+          type="button"
+          aria-label="Settings"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+            <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21H9.6v-.1A1.7 1.7 0 0 0 8 19.4a1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 3.6 15a1.7 1.7 0 0 0-.6-1 1.7 1.7 0 0 0-1.1-.4H1.8V9.6h.1A1.7 1.7 0 0 0 3.6 8a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8 3.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V1.8h4v.1A1.7 1.7 0 0 0 15 3.6a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8a1.7 1.7 0 0 0 .6 1 1.7 1.7 0 0 0 1.1.4h.1v4h-.1a1.7 1.7 0 0 0-1.7 1.6Z"></path>
+          </svg>
         </button>
-      </div>
+      </header>
 
-      <!-- Event card -->
-      <div class="card">
-        <div class="eventTitle" id="eventTitle">—</div>
-        <div class="eventMeta" id="eventMeta">—</div>
-        <div class="status" id="status"></div>
-      </div>
+      <main id="mainContent">
+        <section id="loadingView" class="stateView centeredState" aria-live="polite">
+          <div class="loadingMark" aria-hidden="true"></div>
+          <div class="eyebrow">CHECKING THIS PAGE</div>
+          <h1>Looking for better ticket prices…</h1>
+        </section>
 
-      <!-- Offers card -->
-      <div class="card">
-        <div class="sectionHeader">
-          <div class="sectionTitleRow">
-            <div class="sectionTitle">Offers</div>
-            <div class="sectionNote">Est. before fees &amp; taxes</div>
+        <section id="unsupportedView" class="stateView unsupportedView" hidden>
+          <div class="heroIcon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="m4 3 15 8-6.1 1.8L9 19 4 3Z"></path>
+              <path d="m13 13 5 5"></path>
+            </svg>
           </div>
-          <div id="pill" class="pill" style="display:none;"></div>
+
+          <div class="centeredIntro">
+            <div class="eyebrow">START ON AN EVENT PAGE</div>
+            <h1>Let’s find you a better ticket.</h1>
+            <p>Open an event on one of these sites, then click Another Tab again.</p>
+          </div>
+
+          <nav class="siteGrid" aria-label="Supported ticket sites">
+            <a class="siteButton" href="https://www.ticketmaster.com/" target="_blank" rel="noopener noreferrer">
+              <span>Ticketmaster</span><span aria-hidden="true">↗</span>
+            </a>
+            <a class="siteButton" href="https://seatgeek.com/" target="_blank" rel="noopener noreferrer">
+              <span>SeatGeek</span><span aria-hidden="true">↗</span>
+            </a>
+            <a class="siteButton" href="https://www.vividseats.com/" target="_blank" rel="noopener noreferrer">
+              <span>Vivid Seats</span><span aria-hidden="true">↗</span>
+            </a>
+            <a class="siteButton" href="https://www.stubhub.com/" target="_blank" rel="noopener noreferrer">
+              <span>StubHub</span><span aria-hidden="true">↗</span>
+            </a>
+          </nav>
+
+          <div class="orDivider"><span>or skip the comparison</span></div>
+
+          <div class="promoBlock">
+            <div class="promoLabel">TICKETNETWORK PROMO CODE</div>
+            <div class="promoLine">
+              <code>Tix25</code>
+              <span class="promoBadge">25% off</span>
+            </div>
+          </div>
+
+          <div class="primaryActions">
+            <button id="copyTicketNetworkCode" class="wideButton copyButton" type="button" data-copy="Tix25">
+              <span aria-hidden="true">⧉</span>
+              <span class="copyLabel">Copy code Tix25</span>
+            </button>
+            <a
+              class="wideButton primaryButton shopButton"
+              href="https://www.ticketnetwork.com/?utm_source=ir&amp;utm_medium=aff&amp;utm_content=ad&amp;utm_campaign=1382158"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span><strong>Shop TicketNetwork</strong><small>Use promo code Tix25</small></span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <p class="footnote">Eligible tickets · Fees and taxes shown at checkout</p>
+        </section>
+
+        <section id="eventView" class="stateView eventView" hidden>
+          <div class="centeredIntro eventIntro">
+            <div id="eventKicker" class="eyebrow">—</div>
+            <h1 id="eventTitle">—</h1>
+            <p id="eventSummary">—</p>
+          </div>
+
+          <div id="results" class="offers"></div>
+          <p id="eventFootnote" class="footnote">Estimated prices before fees and taxes</p>
+        </section>
+
+        <section id="messageView" class="stateView centeredState" hidden>
+          <div class="messageIcon" aria-hidden="true">!</div>
+          <div class="eyebrow" id="messageEyebrow">ANOTHER TAB</div>
+          <h1 id="messageTitle">Something went wrong.</h1>
+          <p id="messageBody">Please try again.</p>
+          <button id="messageActionBtn" class="wideButton primaryButton messageAction" type="button">Try again</button>
+        </section>
+      </main>
+
+      <section id="settingsView" class="settingsView" hidden>
+        <div class="settingsHeading">
+          <div>
+            <div class="eyebrow">ANOTHER TAB</div>
+            <h1>Settings</h1>
+          </div>
+          <button id="closeSettingsBtn" class="textButton" type="button">Done</button>
         </div>
 
-        <div id="results" class="results"></div>
-      </div>
-
-      <!-- Settings card (NOW at the bottom, below offers) -->
-      <div class="card">
-        <div class="row">
-          <div class="settingRow">
-            <div class="settingLeft">
-              <div class="settingTitle">Enabled on this site</div>
-              <div class="settingSub">Compare offers on the current ticket page</div>
-            </div>
-
-            <label class="switch" aria-label="Enabled on this site">
-              <input id="enabledOnSite" type="checkbox" />
-              <span class="track"></span>
-              <span class="thumb"></span>
-            </label>
+        <div class="settingRow" id="siteToggleRow">
+          <div class="settingCopy">
+            <div class="settingTitle">Enabled on this site</div>
+            <div id="siteSettingHelp" class="settingHelp">Compare offers on the current ticket page</div>
           </div>
+          <label class="switch" aria-label="Enabled on this site">
+            <input id="enabledOnSite" type="checkbox" />
+            <span class="switchTrack"></span>
+            <span class="switchThumb"></span>
+          </label>
+        </div>
 
-          <div class="divider"></div>
+        <div class="settingsDivider"></div>
 
-          <div class="settingRow">
-            <div class="settingLeft">
-              <div class="settingTitle">Appearance</div>
-              <div class="settingSub">Choose Light or Dark theme</div>
-            </div>
-
-            <div class="segmented" role="group" aria-label="Theme">
-              <button id="themeLightBtn" class="segbtn" type="button">Light</button>
-              <button id="themeDarkBtn" class="segbtn" type="button">Dark</button>
-            </div>
+        <div class="settingRow">
+          <div class="settingCopy">
+            <div class="settingTitle">Appearance</div>
+            <div class="settingHelp">Choose a light or dark theme</div>
+          </div>
+          <div class="segmented" role="group" aria-label="Theme">
+            <button id="themeLightBtn" class="segmentButton" type="button">Light</button>
+            <button id="themeDarkBtn" class="segmentButton" type="button">Dark</button>
           </div>
         </div>
-      </div>
 
-      <!-- Dev only -->
-      <details class="card dev" id="debugPanel" style="display:none;">
-        <summary>Developer</summary>
+        <button id="refreshBtn" class="wideButton settingsRefresh" type="button">Refresh comparison</button>
 
-        <div class="row">
-          <div class="devgrid">
-            <div class="devitem">
-              <div class="devlabel">Confidence</div>
-              <div id="devConfidence" class="devvalue">—</div>
-            </div>
-            <div class="devitem">
-              <div class="devlabel">Host</div>
-              <div id="devHost" class="devvalue">—</div>
-            </div>
+        <details id="debugPanel" class="debugPanel" hidden>
+          <summary>Developer</summary>
+          <div class="debugGrid">
+            <div><span>Confidence</span><strong id="devConfidence">—</strong></div>
+            <div><span>Host</span><strong id="devHost">—</strong></div>
           </div>
-
-          <div class="devlabel" style="margin-top:10px;">Debug JSON</div>
-          <textarea id="devJson" class="devtextarea" rows="8" readonly></textarea>
-
-          <div class="devactions">
-            <button id="copyJsonBtn" class="btn secondary" type="button">Copy JSON</button>
-            <button id="matchBtn" class="btn primary" type="button">Re-match</button>
+          <textarea id="devJson" rows="8" readonly aria-label="Debug JSON"></textarea>
+          <div class="debugActions">
+            <button id="copyJsonBtn" class="textButton" type="button">Copy JSON</button>
+            <button id="matchBtn" class="textButton" type="button">Re-match</button>
           </div>
+        </details>
+      </section>
 
-          <div class="hint">Dev only.</div>
-        </div>
-      </details>
+      <p id="status" class="srStatus" aria-live="polite"></p>
     </div>
 
     <script src="../vendor/browser-polyfill.min.js"></script>

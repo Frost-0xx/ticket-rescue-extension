@@ -5,6 +5,7 @@ module.exports = {
   description: "__DESCRIPTION__",
 
   action: {
+    default_title: "Another Tab",
     default_popup: "src/popup.html"
   },
 
@@ -19,7 +20,7 @@ module.exports = {
     "128": "__ICON128__"
   },
 
-  permissions: ["storage"],
+  permissions: ["storage", "activeTab"],
 
   // keep as a STRING placeholder; build will replace with JSON array
   host_permissions: "__HOST_PERMISSIONS__",
